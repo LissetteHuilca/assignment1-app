@@ -27,13 +27,13 @@ app.get('/solutions/projects', (req, res) => {
 });
 
 app.get('/solutions/projects/id-demo', (req, res) => {
-    projectData.getProjectById(5)
+    projectData.getProjectById(999)
         .then(project => res.json(project))
         .catch(err => res.send(err));
 });
 
 app.get('/solutions/projects/sector-demo', (req, res) => { 
-    projectData.getProjectsBySector("agriculture")
+    projectData.getProjectsBySector("letter")
         .then(projects => res.json(projects))
         .catch(err => res.send(err));
 });
