@@ -6,7 +6,7 @@
 *
 * https://www.senecapolytechnic.ca/about/policies/academic-integrity-policy.html
 *
-* Name: Lissette Huilca Aguilar Student ID: 107510240 Date: 21-09-2025
+* Name: Lissette Huilca Aguilar Student ID: 107510240 Date: 28-09-2025
 *
 ********************************************************************************/
 
@@ -27,13 +27,13 @@ app.get('/solutions/projects', (req, res) => {
 });
 
 app.get('/solutions/projects/id-demo', (req, res) => {
-    projectData.getProjectById(5)
+    projectData.getProjectById(999)
         .then(project => res.json(project))
         .catch(err => res.send(err));
 });
 
 app.get('/solutions/projects/sector-demo', (req, res) => { 
-    projectData.getProjectsBySector("agriculture")
+    projectData.getProjectsBySector("letter")
         .then(projects => res.json(projects))
         .catch(err => res.send(err));
 });
