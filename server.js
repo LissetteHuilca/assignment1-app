@@ -6,7 +6,7 @@
 *
 * https://www.senecapolytechnic.ca/about/policies/academic-integrity-policy.html
 *
-* Name: Lissette Huilca Aguilar Student ID: 107510240 Date: 28-09-2025
+* Name: Lissette Huilca Aguilar Student ID: 107510240 Date: 29-09-2025
 *
 ********************************************************************************/
 
@@ -38,19 +38,13 @@ app.get('/solutions/projects/sector-demo', (req, res) => {
         .catch(err => res.send(err));
 });
 
+projectData.initialize()
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`Server running on http://localhost:${PORT}`);
+    });
+  })
+  .catch(err => console.log("Initialization failed:", err));
 
-const isVercel = !!process.env.VERCEL;
-const initPromise = projectData.initialize();
-
-app.use(async (req, res, next) => {
-  await initPromise;
-  next();
-});
-
-if (isVercel) {
-  module.exports = app;
-} else {
-  app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-  });
-}
+// --- Vercel ---
+module.exports = app;
